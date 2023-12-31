@@ -58,7 +58,6 @@ func elephant(input string) int {
 }
 
 func readFile(pathFromCaller string) string {
-
 	_, filename, _, ok := runtime.Caller(1)
 	if !ok {
 		panic("Could not find Caller of util.ReadFile")
