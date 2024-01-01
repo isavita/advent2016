@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
+	"io/os"
 	"path"
 	"runtime"
 	"strconv"
@@ -60,12 +60,12 @@ func elephant(input string) int {
 func readFile(pathFromCaller string) string {
 	_, filename, _, ok := runtime.Caller(1)
 	if !ok {
-		panic("Could not find Caller of util.ReadFile")
+		panic("Not Found")
 	}
 
 	absolutePath := path.Join(path.Dir(filename), pathFromCaller)
 
-	content, err := ioutil.ReadFile(absolutePath)
+	content, err := os.ReadFile(absolutePath)
 	if err != nil {
 		panic(err)
 	}
